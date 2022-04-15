@@ -1,20 +1,16 @@
 #include <string>
+#include <iostream>
 
-class Notes
+using std::cout;
+class NoteNode
 {
-    //Make a singleton? find a pattern to keep the memory usage done
+    //Turn into a linked list item, and build up a "Scale" from them.
+    //Scalable to include additonal items later on0
     //Get a way to print the scale names
 
 public:
-    enum Scales
-    {
-        Major = 1,
-        Minor,
-        Locrian,
-        Lydian,
-    };
 
-    enum NotesOfScale
+    enum Note
     {
         C = 1,
         Cs, //s is #
@@ -27,11 +23,16 @@ public:
         Gs,
         A,
         As,
-        B
+        B,
+        NONE
     };
+    
+    Note note;
+    NoteNode* next;
 
-
-    Notes();
+    NoteNode();
+    NoteNode(Note inNote);
+    NoteNode(Note inNote, NoteNode& prevNote);
     
     std::string getNote(int noteNum);
 

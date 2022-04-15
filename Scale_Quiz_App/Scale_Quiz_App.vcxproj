@@ -22,10 +22,12 @@
     <ClCompile Include="GameRunner.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Notes.cpp" />
+    <ClCompile Include="Scale.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameRunner.h" />
     <ClInclude Include="Notes.h" />
+    <ClInclude Include="Scale.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

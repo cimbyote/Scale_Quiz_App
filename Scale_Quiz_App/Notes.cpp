@@ -1,11 +1,26 @@
 #include "Notes.h"
 
-Notes::Notes()
+NoteNode::NoteNode()
 {
-
+	note = Note::NONE;
+	next = nullptr;
 }
 
-std::string Notes::getNote(int noteNum)
+NoteNode::NoteNode(Note inNote)
+{
+	note = inNote;
+	next = nullptr;
+	cout << getNote(note) << " Note has been made\n"; //delete this after debugging
+}
+
+NoteNode::NoteNode(Note inNote, NoteNode& prevNote)
+{
+	note = inNote;
+	next = nullptr;
+	prevNote.next = this;
+}
+
+std::string NoteNode::getNote(int noteNum)
 {
 	//This is a bad way to do it, but want to get it working
 
@@ -34,6 +49,8 @@ std::string Notes::getNote(int noteNum)
 		return "A# ";
 	case 12:
 		return "B ";
+	case 13:
+		return"NONE";
 	}
 		
 }

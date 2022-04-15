@@ -2,7 +2,7 @@
 #include <string>
 #include <chrono>
 #include <random>
-#include "Notes.h"
+#include "Scale.h"
 
 using std::cin;
 using std::cout;
@@ -31,15 +31,14 @@ public:
     void operator=(Gamerunner const&) = delete;
 
 private:
-    Notes* noteInstance;
-
     Gamerunner();
+    
+    Scale currentScale;
+
 
     //do better
     bool runningFlag;
     string userInput;
-    int currentNote;
-    int currentScale;
 
     int getRandomNum(int min, int max);
     int randomizeNote();
@@ -51,7 +50,7 @@ private:
 
     //For scales and their formulas
     //https://en.wikipedia.org/wiki/List_of_musical_scales_and_modes
-    string LoadMajorScale(int scaleNum);
+    
     string LoadMinorScale(int scaleNum);
 
 };

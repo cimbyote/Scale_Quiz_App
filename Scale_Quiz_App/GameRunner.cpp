@@ -3,9 +3,6 @@
 Gamerunner::Gamerunner() //default
 {
 	cout << "Gamerunner has been made" << endl;
-	noteInstance = new Notes();
-	currentNote = 0;
-	currentScale = 0;
 	runningFlag = false;
 }
 
@@ -16,34 +13,11 @@ void Gamerunner::play()
 	runningFlag = true;
 	cout << "Game is running Play" << endl;
 
-	currentNote = randomizeNote();
-	currentScale = randomizeScaleType();
-	cout << currentNote << endl;
+	currentScale = Scale(static_cast<Scale::Scales>(randomizeScaleType()), static_cast<NoteNode::Note>(randomizeNote()));
 
-	//cout << "Write out the " << getStringForEnum(currentNote) << " scale, one note at a time" << endl;
-	//cout << "Hit enter after each individual letter" << endl;
-	//cout << "Enter in Q to quit." << endl;
-
-	// << LoadMajorScale(currentNote) << endl;
+	currentScale.LoadScale();
 
 	printAllScales();
-
-	//int counter = 0;
-
-	//while (runningFlag)
-	//{
-	//	cin >> userInput;
-
-	//	cout << userInput << endl;
-
-	//	cout << ++counter << endl;
-
-	//	if ((counter == 8)||(!userInput.compare("Q")))
-	//	{
-	//		runningFlag = false;
-	//	}
-	//}
-
 }
 
 
@@ -70,7 +44,8 @@ int Gamerunner::randomizeNote()
 
 int Gamerunner::randomizeScaleType()
 {
-	return getRandomNum(1, 4);
+	return 1;
+	//return getRandomNum(1, 4);
 }
 
 void Gamerunner::printAllScales()
@@ -78,7 +53,7 @@ void Gamerunner::printAllScales()
 	cout << "Printing All Scales" << endl;
 	for (int i = 1; i <= 12; i++)
 	{
-		cout << i<<": " << LoadMajorScale(i) << endl;
+		//cout << i<<": " << LoadMajorScale(i) << endl;
 	}
 }
 
@@ -89,65 +64,6 @@ string Gamerunner::getStringForEnums(int enum_val)
 	return tmp;
 }
 
-string Gamerunner::LoadMajorScale(int scaleNum)
-{
-	//wwhwwwh
-	//2212221
-	//0123456
-	string outputString = "";
-	int notesLoaded = 0;
-	
-	int startingNote = scaleNum;
-	int scaleClimber = startingNote;
-
-	while (notesLoaded < 8)
-	{
-
-		//outputString.append(noteInstance->getNote(scaleClimber));
-
-		//Load notes of scale dynamically for fun
-
-		//TODO: Make this work all the time, not just on a few scales
-
-		if (scaleClimber == 13) {
-			
-			scaleClimber = 1;
-			
-		}
-		else if (scaleClimber == 14) {
-
-			scaleClimber = 2;
-		}
-		else
-		{
-			//whole
-			if ((notesLoaded == 0) || (notesLoaded == 1) || (notesLoaded == 3) || (notesLoaded == 4) || (notesLoaded == 5))
-			{
-				outputString.append(noteInstance->getNote(scaleClimber)+"\t");
-				scaleClimber += 2; //move forward for next
-			}
-			//half
-			else if ((notesLoaded == 2) || (notesLoaded == 6))
-			{
-				outputString.append(noteInstance->getNote(scaleClimber) + "\t");
-				++scaleClimber; //move forward for next
-			}
-			//reset for octave
-			else if (notesLoaded == 7)
-			{
-				scaleClimber = startingNote;
-				outputString.append(noteInstance->getNote(scaleClimber) + "\t");
-			}
-			++notesLoaded;
-		}
-
-		//1,3,4,6,8,10,11,1
-		
-	}
-	
-
-	return outputString;
-}
 
 string Gamerunner::LoadMinorScale(int scaleNum)
 {
