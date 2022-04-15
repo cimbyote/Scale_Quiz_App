@@ -1,20 +1,22 @@
 #include "Scale.h"
+#include "ConsolePrintColor.h"
+
 
 Scale::Scale()
 {
-	scaleName = Scales::NOTSCALE;
-	scaleRootNote = NoteNode::Note::NONE;
+	scaleName = ScaleType::NOTSCALE;
+	scaleRootNote = Note::NoteList::NONE;
 	headerNoteNode = nullptr;
 }
 
-Scale::Scale(Scales inScaleName, NoteNode::Note inRootNote, NoteNode* inHeader)
+Scale::Scale(ScaleType inScaleName, Note::NoteList inRootNote, Note* inHeader)
 {
 	scaleName = inScaleName;
 	scaleRootNote = inRootNote;
 	headerNoteNode = inHeader;
 }
 
-Scale::Scale(Scales inScaleName, NoteNode::Note inRootNote)
+Scale::Scale(ScaleType inScaleName, Note::NoteList inRootNote)
 {
 	scaleName = inScaleName;
 	scaleRootNote = inRootNote;
@@ -31,15 +33,34 @@ void Scale::LoadScale()
 	LoadMajorScale(scaleRootNote);
 }
 
+void Scale::printScale()
+{
+	//TODO: add protection later
+	//TODO: move this kinda thing elsewhere, or change the format. output a string?
+
+	//walk the list and print
+	Note* walker = headerNoteNode;
+	while (walker->next != nullptr)
+	{
+		cout << walker->getNote(walker->note)<< "\t";
+		
+
+		walker = walker->next;
+	}
+
+	//print the last bit
+	cout << RED << walker->getNote(walker->note) << RESET;
+}
+
 void Scale::addNoteToScale(int inScaleNum)
 {
 	if (headerNoteNode != nullptr)
 	{
-		NoteNode* temp = new NoteNode(static_cast<NoteNode::Note>(inScaleNum));
+		Note* temp = new Note(static_cast<Note::NoteList>(inScaleNum));
 
 		//walk the list until there is a null next
 
-		NoteNode* walker = headerNoteNode;
+		Note* walker = headerNoteNode;
 		while (walker->next != nullptr)
 		{
 			walker = walker->next;
@@ -50,7 +71,7 @@ void Scale::addNoteToScale(int inScaleNum)
 	}
 	else
 	{
-		headerNoteNode = new NoteNode(scaleRootNote);
+		headerNoteNode = new Note(scaleRootNote);
 	}
 }
 
@@ -60,8 +81,8 @@ void Scale::LoadMajorScale(int inRootNote)
 	//2212221
 	//0123456
 
-	this->scaleName = Scales::Major;
-	this->scaleRootNote = static_cast<NoteNode::Note>(inRootNote);
+	this->scaleName = ScaleType::Major;
+	this->scaleRootNote = static_cast<Note::NoteList>(inRootNote);
 
 	int notesLoaded = 0;
 
@@ -98,3 +119,9 @@ void Scale::LoadMajorScale(int inRootNote)
 		}
 	}
 }
+
+void Scale::LoadMinorScale(int rootNum)
+{
+}
+
+

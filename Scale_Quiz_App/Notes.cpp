@@ -1,26 +1,26 @@
 #include "Notes.h"
 
-NoteNode::NoteNode()
+Note::Note()
 {
-	note = Note::NONE;
+	note = NoteList::NONE;
 	next = nullptr;
 }
 
-NoteNode::NoteNode(Note inNote)
+Note::Note(NoteList inNote)
 {
 	note = inNote;
 	next = nullptr;
 	cout << getNote(note) << " Note has been made\n"; //delete this after debugging
 }
 
-NoteNode::NoteNode(Note inNote, NoteNode& prevNote)
+Note::Note(NoteList inNote, Note& prevNote)
 {
 	note = inNote;
 	next = nullptr;
 	prevNote.next = this;
 }
 
-std::string NoteNode::getNote(int noteNum)
+std::string Note::getNote(int noteNum)
 {
 	//This is a bad way to do it, but want to get it working
 

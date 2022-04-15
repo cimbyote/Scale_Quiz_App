@@ -48,10 +48,8 @@ private:
 
     string getStringForEnums(int enum_val);
 
-    //For scales and their formulas
-    //https://en.wikipedia.org/wiki/List_of_musical_scales_and_modes
     
-    string LoadMinorScale(int scaleNum);
+ 
 
 };
 

@@ -13,11 +13,11 @@ void Gamerunner::play()
 	runningFlag = true;
 	cout << "Game is running Play" << endl;
 
-	currentScale = Scale(static_cast<Scale::Scales>(randomizeScaleType()), static_cast<NoteNode::Note>(randomizeNote()));
+	currentScale = Scale(static_cast<Scale::ScaleType>(randomizeScaleType()), static_cast<Note::NoteList>(randomizeNote()));
 
 	currentScale.LoadScale();
 
-	printAllScales();
+	currentScale.printScale();
 }
 
 
@@ -62,11 +62,4 @@ string Gamerunner::getStringForEnums(int enum_val)
 	//string tmp(noteInstance->enum_str[enum_val]);
 	string tmp("STUB");
 	return tmp;
-}
-
-
-string Gamerunner::LoadMinorScale(int scaleNum)
-{
-	//whole, half, whole, whole, half, whole, whole. 
-	return string();
 }

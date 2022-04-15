@@ -25,6 +25,7 @@
     <ClCompile Include="Scale.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConsolePrintColor.h" />
     <ClInclude Include="GameRunner.h" />
     <ClInclude Include="Notes.h" />
     <ClInclude Include="Scale.h" />

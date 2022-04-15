@@ -2,15 +2,14 @@
 #include <iostream>
 
 using std::cout;
-class NoteNode
+class Note
 {
     //Turn into a linked list item, and build up a "Scale" from them.
     //Scalable to include additonal items later on0
-    //Get a way to print the scale names
 
 public:
 
-    enum Note
+    enum NoteList
     {
         C = 1,
         Cs, //s is #
@@ -27,12 +26,12 @@ public:
         NONE
     };
     
-    Note note;
-    NoteNode* next;
+    NoteList note;
+    Note* next;
 
-    NoteNode();
-    NoteNode(Note inNote);
-    NoteNode(Note inNote, NoteNode& prevNote);
+    Note();
+    Note(NoteList inNote);
+    Note(NoteList inNote, Note& prevNote);
     
     std::string getNote(int noteNum);
 
