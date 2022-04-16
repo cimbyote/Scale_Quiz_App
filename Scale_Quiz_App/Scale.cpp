@@ -4,19 +4,19 @@
 
 Scale::Scale()
 {
-	scaleName = ScaleType::NOTSCALE;
-	scaleRootNote = Note::NoteList::NONE;
+	scaleName = Helper::ScaleType::NOTSCALE;
+	scaleRootNote = Helper::NoteList::NONE;
 	headerNoteNode = nullptr;
 }
 
-Scale::Scale(ScaleType inScaleName, Note::NoteList inRootNote, Note* inHeader)
+Scale::Scale(Helper::ScaleType inScaleName, Helper::NoteList inRootNote, Note* inHeader)
 {
 	scaleName = inScaleName;
 	scaleRootNote = inRootNote;
 	headerNoteNode = inHeader;
 }
 
-Scale::Scale(ScaleType inScaleName, Note::NoteList inRootNote)
+Scale::Scale(Helper::ScaleType inScaleName, Helper::NoteList inRootNote)
 {
 	scaleName = inScaleName;
 	scaleRootNote = inRootNote;
@@ -56,7 +56,7 @@ void Scale::addNoteToScale(int inScaleNum)
 {
 	if (headerNoteNode != nullptr)
 	{
-		Note* temp = new Note(static_cast<Note::NoteList>(inScaleNum));
+		Note* temp = new Note(static_cast<Helper::NoteList>(inScaleNum));
 
 		//walk the list until there is a null next
 
@@ -75,18 +75,18 @@ void Scale::addNoteToScale(int inScaleNum)
 	}
 }
 
-void Scale::LoadMajorScale(int inRootNote)
+void Scale::LoadMajorScale(Helper::NoteList inRootNote)
 {
 	//wwhwwwh
 	//2212221
 	//0123456
 
-	this->scaleName = ScaleType::Major;
-	this->scaleRootNote = static_cast<Note::NoteList>(inRootNote);
+	this->scaleName = Helper::ScaleType::Major;
+	this->scaleRootNote = inRootNote;
 
 	int notesLoaded = 0;
 
-	int startingNote = inRootNote;
+	int startingNote = static_cast<int>(inRootNote); //have to cast to int to use algorithm
 	int scaleClimber = startingNote;
 
 	//can't reasonable use a for loop, as there is inconsistent iteration progression
@@ -120,7 +120,7 @@ void Scale::LoadMajorScale(int inRootNote)
 	}
 }
 
-void Scale::LoadMinorScale(int rootNum)
+void Scale::LoadMinorScale(Helper::NoteList rootNum)
 {
 }
 

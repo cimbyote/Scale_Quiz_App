@@ -1,7 +1,9 @@
 #include <string>
 #include <iostream>
+#include "Helper.h"
 
 using std::cout;
+
 class Note
 {
     //Turn into a linked list item, and build up a "Scale" from them.
@@ -9,36 +11,21 @@ class Note
 
 public:
 
-    enum NoteList
-    {
-        C = 1,
-        Cs, //s is #
-        D,
-        Ds,
-        E,
-        F,
-        Fs,
-        G,
-        Gs,
-        A,
-        As,
-        B,
-        NONE
-    };
     
-    NoteList note;
+    
+    Helper::NoteList note;
     Note* next;
 
     Note(); //default constructor
-    Note(NoteList inNote);
-    Note(NoteList inNote, Note& prevNote);
+    Note(Helper::NoteList inNote);
+    Note(Helper::NoteList inNote, Note& prevNote);
     
-    Note(Note const&); //copy constructor
-    Note& operator=(const Note&); //copy assignment operator
-    ~Note();//destructor
+    //Note(Note const&); //copy constructor
+    //Note& operator=(const Note&); //copy assignment operator
+    //~Note();//destructor
 
 
-    std::string getNote(int noteNum);
+    std::string getNote(Helper::NoteList noteNum);
 
 
     

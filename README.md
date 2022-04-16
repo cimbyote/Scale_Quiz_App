@@ -13,6 +13,7 @@ N/A for now. Will implement when ready. No interface present beyond hardcoding t
 - [ ] Implement structure to hold a group of scales
 - [ ] Implement Helper Class for getting/printing notes and scales
     - [ ] Service Locator Pattern to Avoid an unnecessary singleton?
+    - [ ] Move enums to this service locator
 - [ ] Implement a visual aspect/remove from console once structures are in place
 
 ## Contributing

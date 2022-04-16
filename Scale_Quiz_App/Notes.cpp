@@ -2,55 +2,56 @@
 
 Note::Note()
 {
-	note = NoteList::NONE;
+	note = Helper::NoteList::NONE;
 	next = nullptr;
 }
 
-Note::Note(NoteList inNote)
+Note::Note(Helper::NoteList inNote)
 {
 	note = inNote;
 	next = nullptr;
 	cout << getNote(note) << " Note has been made\n"; //delete this after debugging
 }
 
-Note::Note(NoteList inNote, Note& prevNote)
+Note::Note(Helper::NoteList inNote, Note& prevNote)
 {
 	note = inNote;
 	next = nullptr;
 	prevNote.next = this;
 }
 
-std::string Note::getNote(int noteNum)
+std::string Note::getNote(Helper::NoteList noteNum)
 {
 	//This is a bad way to do it, but want to get it working
 
 	switch (noteNum) {
-	case 1:
+	case Helper::NoteList::C:
 		return "C ";
-	case 2:
+	case Helper::NoteList::Cs:
 		return "C# ";
-	case 3:
+	case Helper::NoteList::D:
 		return "D ";
-	case 4:
+	case Helper::NoteList::Ds:
 		return "D# ";
-	case 5:
+	case Helper::NoteList::E:
 		return "E ";
-	case 6:
+	case Helper::NoteList::F:
 		return "F ";
-	case 7:
+	case Helper::NoteList::Fs:
 		return "F# ";
-	case 8:
+	case Helper::NoteList::G:
 		return "G ";
-	case 9:
+	case Helper::NoteList::Gs:
 		return "G# ";
-	case 10:
+	case Helper::NoteList::A:
 		return "A ";
-	case 11:
+	case Helper::NoteList::As:
 		return "A# ";
-	case 12:
+	case Helper::NoteList::B:
 		return "B ";
-	case 13:
+	case Helper::NoteList::NONE:
 		return"NONE";
+	default:
+		return "Error";
 	}
-		
 }

@@ -13,7 +13,7 @@ void Gamerunner::play()
 	runningFlag = true;
 	cout << "Game is running Play" << endl;
 
-	currentScale = Scale(static_cast<Scale::ScaleType>(randomizeScaleType()), static_cast<Note::NoteList>(randomizeNote()));
+	currentScale = Scale(static_cast<Helper::ScaleType>(randomizeScaleType()), static_cast<Helper::NoteList>(randomizeNote())); //Fix to remove need for cast?
 
 	currentScale.LoadScale();
 

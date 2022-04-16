@@ -2,7 +2,9 @@
 #include <string>
 #include <chrono>
 #include <random>
+#include "Helper.h"
 #include "Scale.h"
+
 
 using std::cin;
 using std::cout;
@@ -30,7 +32,7 @@ public:
 
     Gamerunner(Gamerunner const&) = delete; //copy constructor
     Gamerunner& operator=(const Gamerunner&) = delete; //copy assignment operator
-    ~Gamerunner(); //destructor
+    //~Gamerunner(); //destructor
 
 private:
     Gamerunner(); //default constructor
