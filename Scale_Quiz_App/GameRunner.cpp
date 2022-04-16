@@ -15,11 +15,80 @@ void Gamerunner::play()
 	runningFlag = true;
 	cout << "Game is running Play" << endl;
 
-	currentScale = Scale(randomizeScaleType(), randomizeNote());
+	//currentScale = new Scale(randomizeScaleType(), randomizeNote());
+	currentScale = new Scale(randomizeScaleType(), 1);
+	currentScale->LoadScale();
+	currentScale->printScale();
 
-	currentScale.LoadScale();
+	delete currentScale;
 
-	currentScale.printScale();
+	currentScale = new Scale(randomizeScaleType(), 2);
+	currentScale->LoadScale();
+	currentScale->printScale();
+
+	delete currentScale;
+
+	currentScale = new Scale(randomizeScaleType(), 3);
+	currentScale->LoadScale();
+	currentScale->printScale();
+
+	delete currentScale;
+
+	currentScale = new Scale(randomizeScaleType(), 4);
+	currentScale->LoadScale();
+	currentScale->printScale();
+
+	delete currentScale;
+
+	currentScale = new Scale(randomizeScaleType(), 5);
+	currentScale->LoadScale();
+	currentScale->printScale();
+
+	delete currentScale;
+
+	currentScale = new Scale(randomizeScaleType(), 6);
+	currentScale->LoadScale();
+	currentScale->printScale();
+
+	delete currentScale;
+
+	currentScale = new Scale(randomizeScaleType(), 7);
+	currentScale->LoadScale();
+	currentScale->printScale();
+
+	delete currentScale;
+
+	currentScale = new Scale(randomizeScaleType(), 8);
+	currentScale->LoadScale();
+	currentScale->printScale();
+
+	delete currentScale;
+
+	currentScale = new Scale(randomizeScaleType(), 9);
+	currentScale->LoadScale();
+	currentScale->printScale();
+
+	delete currentScale;
+
+	currentScale = new Scale(randomizeScaleType(), 10);
+	currentScale->LoadScale();
+	currentScale->printScale();
+
+	delete currentScale;
+
+	currentScale = new Scale(randomizeScaleType(), 11);
+	currentScale->LoadScale();
+	currentScale->printScale();
+
+	delete currentScale;
+
+	currentScale = new Scale(randomizeScaleType(), 12);
+	currentScale->LoadScale();
+	currentScale->printScale();
+
+	delete currentScale;
+
+
 }
 
 

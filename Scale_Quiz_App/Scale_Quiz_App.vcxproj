@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameRunner.cpp" />
-    <ClCompile Include="Helper.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Notes.cpp" />
     <ClCompile Include="Scale.cpp" />

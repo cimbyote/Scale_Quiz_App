@@ -10,10 +10,11 @@ N/A for now. Will implement when ready. No interface present beyond hardcoding t
 
 ## TODO
 - [x] Implement linked list for notes to build up to a scale
+- [ ] Add Minor Scale
 - [ ] Implement structure to hold a group of scales
 - [ ] Implement Helper Class for getting/printing notes and scales
     - [ ] Service Locator Pattern to Avoid an unnecessary singleton?
-    - [ ] Move enums to this service locator
+    - [X] Move enums to a helper class
 - [ ] Implement a visual aspect/remove from console once structures are in place
 
 ## Contributing

@@ -10,7 +10,6 @@ Note::Note(Helper::NoteList inNote)
 {
 	note = inNote;
 	next = nullptr;
-	cout << getNoteToPrint(note) << " Note has been made\n"; //delete this after debugging
 }
 
 Note::Note(Helper::NoteList inNote, Note& prevNote)

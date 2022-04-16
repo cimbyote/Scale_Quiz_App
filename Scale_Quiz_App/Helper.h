@@ -30,8 +30,6 @@ public:
         NOTSCALE
     };
 
-    Helper();
-
 };
 
 #endif /* MOVE_H */

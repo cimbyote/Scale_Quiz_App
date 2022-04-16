@@ -37,7 +37,7 @@ public:
 private:
     Gamerunner(); //default constructor
     
-    Scale currentScale;
+    Scale* currentScale;
 
 
     //do better

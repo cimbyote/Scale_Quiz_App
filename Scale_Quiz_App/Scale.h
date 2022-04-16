@@ -41,24 +41,7 @@ public:
 	Helper::ScaleType getScale(int noteNum);
 	Helper::NoteList getNote(int inNoteNum);
 
-	std::string getScaleToPrint(Helper::ScaleType scaleType)
-	{
-		//This is a bad way to do it, but want to get it working
-
-		switch (scaleType) {
-		case Helper::ScaleType::Major:
-			return "Major ";
-		case Helper::ScaleType::Minor:
-			return "Minor ";
-		case Helper::ScaleType::Locrian:
-			return "Locrian ";
-		case Helper::ScaleType::Lydian:
-			return "Lydian ";
-		default:
-			return "none ";
-		}
-
-	}
+	std::string getScaleToPrint(Helper::ScaleType scaleType);
 
 private:
 

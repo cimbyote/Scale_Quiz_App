@@ -47,6 +47,9 @@ void Scale::printScale()
 
 	//walk the list and print
 	Note* walker = headerNoteNode;
+
+	cout << "\n---------------" << walker->getNoteToPrint(walker->note) << " " << getScaleToPrint(this->scaleName) << " Scale: ---------------" << endl;
+
 	while (walker->next != nullptr)
 	{
 		cout << walker->getNoteToPrint(walker->note)<< "\t";
@@ -59,55 +62,6 @@ void Scale::printScale()
 	cout << RED << walker->getNoteToPrint(walker->note) << RESET;
 }
 
-Helper::ScaleType Scale::getScale(int noteNum)
-{
-	switch (noteNum) {
-	case 1:
-		return Helper::ScaleType::Major;
-	case 2:
-		return Helper::ScaleType::Minor;
-	case 3:
-		return Helper::ScaleType::Locrian;
-	case 4:
-		return Helper::ScaleType::Lydian;
-	default:
-		return Helper::ScaleType::NOTSCALE;
-	}
-}
-
-Helper::NoteList Scale::getNote(int inNoteNum)
-{
-	switch (inNoteNum) {
-	case 1:
-		return Helper::NoteList::C;
-	case 2:
-		return Helper::NoteList::Cs;
-	case 3:
-		return Helper::NoteList::D;
-	case 4:
-		return Helper::NoteList::Ds;
-	case 5:
-		return Helper::NoteList::E;
-	case 6:
-		return Helper::NoteList::F;
-	case 7:
-		return Helper::NoteList::Fs;
-	case 8:
-		return Helper::NoteList::G;
-	case 9:
-		return Helper::NoteList::Gs;
-	case 10:
-		return Helper::NoteList::A;
-	case 11:
-		return Helper::NoteList::As;
-	case 12:
-		return Helper::NoteList::B;
-	case 13:
-		return Helper::NoteList::NONE;
-	default:
-		return Helper::NoteList::NONE;
-	}
-}
 
 void Scale::addNoteToScale(int inScaleNum)
 {
@@ -182,3 +136,72 @@ void Scale::LoadMinorScale(Helper::NoteList rootNum)
 }
 
 
+Helper::ScaleType Scale::getScale(int noteNum)
+{
+	switch (noteNum) {
+	case 1:
+		return Helper::ScaleType::Major;
+	case 2:
+		return Helper::ScaleType::Minor;
+	case 3:
+		return Helper::ScaleType::Locrian;
+	case 4:
+		return Helper::ScaleType::Lydian;
+	default:
+		return Helper::ScaleType::NOTSCALE;
+	}
+}
+
+
+std::string  Scale::getScaleToPrint(Helper::ScaleType scaleType)
+{
+	//This is a bad way to do it, but want to get it working
+
+	switch (scaleType) {
+	case Helper::ScaleType::Major:
+		return "Major ";
+	case Helper::ScaleType::Minor:
+		return "Minor ";
+	case Helper::ScaleType::Locrian:
+		return "Locrian ";
+	case Helper::ScaleType::Lydian:
+		return "Lydian ";
+	default:
+		return "none ";
+	}
+
+}
+
+Helper::NoteList Scale::getNote(int inNoteNum) //this shouldn't be owned by Scale.
+{
+	switch (inNoteNum) {
+	case 1:
+		return Helper::NoteList::C;
+	case 2:
+		return Helper::NoteList::Cs;
+	case 3:
+		return Helper::NoteList::D;
+	case 4:
+		return Helper::NoteList::Ds;
+	case 5:
+		return Helper::NoteList::E;
+	case 6:
+		return Helper::NoteList::F;
+	case 7:
+		return Helper::NoteList::Fs;
+	case 8:
+		return Helper::NoteList::G;
+	case 9:
+		return Helper::NoteList::Gs;
+	case 10:
+		return Helper::NoteList::A;
+	case 11:
+		return Helper::NoteList::As;
+	case 12:
+		return Helper::NoteList::B;
+	case 13:
+		return Helper::NoteList::NONE;
+	default:
+		return Helper::NoteList::NONE;
+	}
+}
