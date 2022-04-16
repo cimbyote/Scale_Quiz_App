@@ -6,16 +6,14 @@ Created to experiment with different structures and design patterns.
 N/A for now. Will implement when ready
 
 ## Usage
-N/A for now. Will implement when ready
+N/A for now. Will implement when ready. No interface present beyond hardcoding testing values
 
 ## TODO
-- Implement Helper Class for getting/printing notes and scales
-    - Service Locator Pattern?
-        - Avoid an unnecessary singleton
-    - Implement a visual aspect/remove from console once structures are in place
-
-- [ ] An uncompleted task
-    - [ ] A subtask
+- [x] Implement linked list for notes to build up to a scale
+- [ ] Implement structure to hold a group of scales
+- [ ] Implement Helper Class for getting/printing notes and scales
+    - [ ] Service Locator Pattern to Avoid an unnecessary singleton?
+- [ ] Implement a visual aspect/remove from console once structures are in place
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
