@@ -10,12 +10,12 @@ N/A for now. Will implement when ready
 
 ## TODO
 - Implement Helper Class for getting/printing notes and scales
-              - Service Locator Pattern?
-                  - Avoid an unnecessary singleton
-          - Implement a visual aspect/remove from console once structures are in place
+    - Service Locator Pattern?
+        - Avoid an unnecessary singleton
+    - Implement a visual aspect/remove from console once structures are in place
 
- Markup : - [ ] An uncompleted task
-              - [ ] A subtask
+- [ ] An uncompleted task
+    - [ ] A subtask
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
