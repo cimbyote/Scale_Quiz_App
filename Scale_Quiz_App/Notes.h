@@ -10,9 +10,6 @@ class Note
     //Scalable to include additonal items later on0
 
 public:
-
-    
-    
     Helper::NoteList note;
     Note* next;
 
@@ -25,10 +22,8 @@ public:
     //~Note();//destructor
 
 
-    std::string getNote(Helper::NoteList noteNum);
-
-
-    
+    std::string getNoteToPrint(Helper::NoteList noteNum);
+   
 
 private:
 

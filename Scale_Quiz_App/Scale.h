@@ -20,7 +20,7 @@ public:
 	Scale(); //default constructor
 	Scale(Helper::ScaleType inScaleName, Helper::NoteList inRootNote, Note* inHeader);
 	Scale(Helper::ScaleType inScaleName, Helper::NoteList inRootNote);
-
+	Scale(int inScaleNum, int inRootNoteNum);
 
 	//Scale(Scale const&); //copy constructor
 	//Scale& operator=(const Scale&); //copy assignment operator
@@ -38,18 +38,21 @@ public:
 
 	void printScale();
 
-	std::string getScale(int noteNum)
+	Helper::ScaleType getScale(int noteNum);
+	Helper::NoteList getNote(int inNoteNum);
+
+	std::string getScaleToPrint(Helper::ScaleType scaleType)
 	{
 		//This is a bad way to do it, but want to get it working
 
-		switch (noteNum) {
-		case 1:
+		switch (scaleType) {
+		case Helper::ScaleType::Major:
 			return "Major ";
-		case 2:
+		case Helper::ScaleType::Minor:
 			return "Minor ";
-		case 3:
+		case Helper::ScaleType::Locrian:
 			return "Locrian ";
-		case 4:
+		case Helper::ScaleType::Lydian:
 			return "Lydian ";
 		default:
 			return "none ";

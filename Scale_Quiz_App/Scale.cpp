@@ -26,6 +26,13 @@ Scale::Scale(Helper::ScaleType inScaleName, Helper::NoteList inRootNote)
 	//headerNoteNode = inHeader;
 }
 
+Scale::Scale(int inScaleNum, int inRootNoteNum)
+{
+	scaleName = getScale(inScaleNum);
+	scaleRootNote = getNote(inRootNoteNum);
+	headerNoteNode = nullptr;
+}
+
 void Scale::LoadScale()
 {
 	//if type = major, etc....
@@ -42,21 +49,71 @@ void Scale::printScale()
 	Note* walker = headerNoteNode;
 	while (walker->next != nullptr)
 	{
-		cout << walker->getNote(walker->note)<< "\t";
+		cout << walker->getNoteToPrint(walker->note)<< "\t";
 		
 
 		walker = walker->next;
 	}
 
 	//print the last bit
-	cout << RED << walker->getNote(walker->note) << RESET;
+	cout << RED << walker->getNoteToPrint(walker->note) << RESET;
+}
+
+Helper::ScaleType Scale::getScale(int noteNum)
+{
+	switch (noteNum) {
+	case 1:
+		return Helper::ScaleType::Major;
+	case 2:
+		return Helper::ScaleType::Minor;
+	case 3:
+		return Helper::ScaleType::Locrian;
+	case 4:
+		return Helper::ScaleType::Lydian;
+	default:
+		return Helper::ScaleType::NOTSCALE;
+	}
+}
+
+Helper::NoteList Scale::getNote(int inNoteNum)
+{
+	switch (inNoteNum) {
+	case 1:
+		return Helper::NoteList::C;
+	case 2:
+		return Helper::NoteList::Cs;
+	case 3:
+		return Helper::NoteList::D;
+	case 4:
+		return Helper::NoteList::Ds;
+	case 5:
+		return Helper::NoteList::E;
+	case 6:
+		return Helper::NoteList::F;
+	case 7:
+		return Helper::NoteList::Fs;
+	case 8:
+		return Helper::NoteList::G;
+	case 9:
+		return Helper::NoteList::Gs;
+	case 10:
+		return Helper::NoteList::A;
+	case 11:
+		return Helper::NoteList::As;
+	case 12:
+		return Helper::NoteList::B;
+	case 13:
+		return Helper::NoteList::NONE;
+	default:
+		return Helper::NoteList::NONE;
+	}
 }
 
 void Scale::addNoteToScale(int inScaleNum)
 {
 	if (headerNoteNode != nullptr)
 	{
-		Note* temp = new Note(static_cast<Helper::NoteList>(inScaleNum));
+		Note* temp = new Note(getNote(inScaleNum));
 
 		//walk the list until there is a null next
 

@@ -10,7 +10,7 @@ Note::Note(Helper::NoteList inNote)
 {
 	note = inNote;
 	next = nullptr;
-	cout << getNote(note) << " Note has been made\n"; //delete this after debugging
+	cout << getNoteToPrint(note) << " Note has been made\n"; //delete this after debugging
 }
 
 Note::Note(Helper::NoteList inNote, Note& prevNote)
@@ -20,7 +20,7 @@ Note::Note(Helper::NoteList inNote, Note& prevNote)
 	prevNote.next = this;
 }
 
-std::string Note::getNote(Helper::NoteList noteNum)
+std::string Note::getNoteToPrint(Helper::NoteList noteNum)
 {
 	//This is a bad way to do it, but want to get it working
 
@@ -55,3 +55,4 @@ std::string Note::getNote(Helper::NoteList noteNum)
 		return "Error";
 	}
 }
+

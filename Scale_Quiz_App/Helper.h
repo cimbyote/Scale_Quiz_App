@@ -29,8 +29,8 @@ public:
         Lydian,
         NOTSCALE
     };
-    Helper();
 
+    Helper();
 
 };
 
