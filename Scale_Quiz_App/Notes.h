@@ -29,10 +29,15 @@ public:
     NoteList note;
     Note* next;
 
-    Note();
+    Note(); //default constructor
     Note(NoteList inNote);
     Note(NoteList inNote, Note& prevNote);
     
+    Note(Note const&); //copy constructor
+    Note& operator=(const Note&); //copy assignment operator
+    ~Note();//destructor
+
+
     std::string getNote(int noteNum);
 
 

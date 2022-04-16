@@ -27,11 +27,13 @@ public:
 
 	void play();
 
-    Gamerunner(Gamerunner const&) = delete;
-    void operator=(Gamerunner const&) = delete;
+
+    Gamerunner(Gamerunner const&) = delete; //copy constructor
+    Gamerunner& operator=(const Gamerunner&) = delete; //copy assignment operator
+    ~Gamerunner(); //destructor
 
 private:
-    Gamerunner();
+    Gamerunner(); //default constructor
     
     Scale currentScale;
 

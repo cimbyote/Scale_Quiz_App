@@ -24,9 +24,15 @@ public:
 	Note::NoteList scaleRootNote;
 	Note* headerNoteNode;
 
-	Scale();
+	Scale(); //default constructor
 	Scale(ScaleType inScaleName, Note::NoteList inRootNote, Note* inHeader);
 	Scale(ScaleType inScaleName, Note::NoteList inRootNote);
+
+
+	Scale(Scale const&); //copy constructor
+	Scale& operator=(const Scale&); //copy assignment operator
+	~Scale(); //destructor
+
 
 	void LoadScale();
 	void addNoteToScale(int inScaleNum);
