@@ -9,7 +9,7 @@ N/A for now. Will implement when ready
 N/A for now. Will implement when ready
 
 ## TODO
- Markup : - Implement Helper Class for getting/printing notes and scales
+- Implement Helper Class for getting/printing notes and scales
               - Service Locator Pattern?
                   - Avoid an unnecessary singleton
           - Implement a visual aspect/remove from console once structures are in place
